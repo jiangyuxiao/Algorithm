@@ -11,72 +11,19 @@ def islandPerimeter(grid):
         for n in range(0,length):
             if grid[m][n]:
                 landnum+=1
-                if m==0:
-                    if n==0:
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-                    elif n==length-1:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-                    else:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-                elif m==width-1:
-                    if n==0:
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                    elif n==length-1:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                    else:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                else:
-                    if n==0:
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-                    elif n==length-1:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-                    else:
-                        if grid[m][n - 1]:
-                            edge += 1
-                        if grid[m][n + 1]:
-                            edge += 1
-                        if grid[m - 1][n]:
-                            edge += 1
-                        if grid[m + 1][n]:
-                            edge += 1
-    print 4*landnum-edge
-
-
-
-grid=[[0,1,0,0,0],
-      [1,1,1,0,0],
-      [0,1,0,0,0],
-      [1,1,0,0,0]]
+                if n-1>=0:
+                    if grid[m][n - 1]:
+                        edge += 1
+                if n+1<length:
+                    if grid[m][n + 1]:
+                        edge += 1
+                if m-1>=0:
+                    if grid[m - 1][n]:
+                        edge += 1
+                if m+1<width:
+                    if grid[m + 1][n]:
+                        edge += 1
+    num=4*landnum-edge
+    print num
+grid=[[0,1]]
 islandPerimeter(grid)
